@@ -1,0 +1,18 @@
+## query
+POST /api/v1/user/list HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name1": "hello"
+}
+
+
+### detial
+POST /api/v1/user/detail HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+   "id": 1
+}
