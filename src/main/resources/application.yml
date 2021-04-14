@@ -1,0 +1,30 @@
+spring.application.name: scrapring
+server.port: 8080
+logging:
+  level:
+    org.zalando.logbook: TRACE
+
+logbook:
+  include:
+    - /api/**
+  exclude:
+    - /actuator/health
+    - /api/admin/**
+  filter.enabled: true
+  strategy: without-body
+  minimum-status: 400
+  obfuscate:
+    headers:
+      - Authorization
+      - X-Secret
+    parameters:
+      - access_token
+      - password
+  write.:
+    chunk-size: 1000
+
+
+spring.datasource:
+  url: "jdbc:mysql://localhost:3306/fluent?charset=utf8mb4&useSSL=false"
+  username: root
+  password: 123456

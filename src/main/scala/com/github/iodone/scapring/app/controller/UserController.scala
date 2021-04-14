@@ -1,13 +1,11 @@
 package com.github.iodone.scapring.app.controller
 
 import com.github.iodone.scapring.app.domain.entity.Entity.{UserId, UserQueryReq}
-import com.github.iodone.scapring.app.domain.exception.StateTransitionException
 import com.github.iodone.scapring.app.domain.service.UserService
 import com.github.iodone.scapring.common.helper.ResponseHelper
+import com.typesafe.scalalogging.LazyLogging
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation._
-import org.springframework.web.server.ResponseStatusException
 
 /**
  * @ClassName UserController
@@ -17,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException
 
 @RestController
 @RequestMapping(Array("/api/v1/user"))
-class UserController @Autowired()(val userService : UserService)  {
+class UserController @Autowired()(val userService : UserService) extends LazyLogging {
 
   /**
    * 分页用戶信息
@@ -25,6 +23,7 @@ class UserController @Autowired()(val userService : UserService)  {
    */
   @PostMapping(value = Array("/list"))
   def list(@RequestBody param: UserQueryReq)={
+    logger.info("hello, logging")
     val ret = userService.list(param.name)
     ResponseHelper.success(ret)
   }
