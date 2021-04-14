@@ -5,7 +5,9 @@ import com.github.iodone.scapring.app.domain.exception.StateTransitionException
 import com.github.iodone.scapring.app.domain.service.UserService
 import com.github.iodone.scapring.common.helper.ResponseHelper
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation._
+import org.springframework.web.server.ResponseStatusException
 
 /**
  * @ClassName UserController

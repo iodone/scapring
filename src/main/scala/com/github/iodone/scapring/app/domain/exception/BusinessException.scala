@@ -7,6 +7,9 @@ abstract class BusinessException(val errorCode: Int, val message: String, val st
 
 class ExitTrappedException(message: String = "System.exit call caught") extends Exception(message)
 
+case class BadRequetException(override val message: String)
+  extends BusinessException(4007400, message, BAD_REQUEST)
+
 case class ValidateException(override val message: String)
   extends BusinessException(4007401, message, BAD_REQUEST)
 
